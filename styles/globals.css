@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+}
+
+ptr,
+.ptr--dragging,
+.ptr__children {
+  height: auto !important;
+  overflow-y: hidden !important;
+}
+
+.ptr__children {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  width: fit-content !important;
+  margin: 0 auto;
+}
+
+.ptr {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.ptr__children::-webkit-scrollbar,
+.hidden-scroll::-webkit-scrollbar {
+  width: 0 !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  display: none !important;
+}

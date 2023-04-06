@@ -2,12 +2,13 @@ import { SiteHeader } from "@/components/site-header"
 
 interface LayoutProps {
   children: React.ReactNode
+  siteHeader?: boolean
 }
 
-export function Layout({ children }: LayoutProps) {
+export function Layout({ children, siteHeader = false }: LayoutProps) {
   return (
     <>
-      <SiteHeader />
+      {siteHeader && <SiteHeader />}
       <main>{children}</main>
     </>
   )

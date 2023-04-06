@@ -5,25 +5,22 @@ interface SiteConfig {
   description: string
   mainNav: NavItem[]
   links: {
-    twitter: string
     github: string
-    docs: string
+    feed: string
   }
 }
 
 export const siteConfig: SiteConfig = {
-  name: "Next.js",
-  description:
-    "Beautifully designed components built with Radix UI and Tailwind CSS.",
+  name: "Quess",
+  description: "Descubra o poder da curiosidade anônima com Quess.",
   mainNav: [
     {
-      title: "Home",
+      title: "Feed",
       href: "/",
     },
   ],
   links: {
-    twitter: "https://twitter.com/shadcn",
     github: "https://github.com/shadcn/ui",
-    docs: "https://ui.shadcn.com",
+    feed: "/feed",
   },
 }
