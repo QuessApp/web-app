@@ -32,7 +32,7 @@ export const Feed = () => {
     <PullToRefresh onRefresh={refetch}>
       <div
         ref={parentRef}
-        className={cn("hidden-scroll mt-1.5 w-[650px] overflow-auto pt-4")}
+        className={cn("hidden-scroll mt-1.5 w-full overflow-auto pt-4")}
         style={{
           // 100% screen      - tabs - gap     - bottom navigation
           height: "calc(100vh - 34px - 0.75rem - 43px)",
@@ -47,7 +47,7 @@ export const Feed = () => {
               transform: `translateY(${questions?.[0]?.start}px)`,
             }}
             className={cn(
-              "absolute left-0 top-0 flex w-[650px] flex-col items-center gap-4"
+              "absolute left-0 top-0 flex w-full flex-col items-center gap-4"
             )}
           >
             {hasFeedItemsToList &&

@@ -1,8 +1,11 @@
+import { useRouter } from "next/router"
+
 import { Button } from "@/components"
 import { useFeedStore } from "@/hooks"
 import { Ghost } from "lucide-react"
 
 export const FeedEmpty = () => {
+  const { push } = useRouter()
   const { filter } = useFeedStore()
 
   const shouldChangeText = filter === "all" || filter === "replied"
@@ -38,7 +41,12 @@ export const FeedEmpty = () => {
         <p className="mb-4 mt-2 text-sm text-slate-500 dark:text-slate-400">
           {subtitle}
         </p>
-        <Button className="h-11 px-8">{button}</Button>
+        <Button
+          className="h-11 px-8"
+          onClick={() => (shouldChangeText ? undefined : push("/send"))}
+        >
+          {button}
+        </Button>
       </div>
     </div>
   )
