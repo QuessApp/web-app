@@ -23,12 +23,12 @@ export default async function handler(
 
     const data = await deleteQuestion(id, req.cookies?.access_token ?? "")
 
-    if (data.ok === false) {
-      throw Error(data.message)
+    if (!data.ok) {
+      return res.status(400).json(data)
     }
 
     return res.status(201).json(customAPISuccess(data?.data))
   } catch (err) {
-    return res.status(400).json(customAPIError(err))
+    return res.status(500).json(customAPIError(err))
   }
 }

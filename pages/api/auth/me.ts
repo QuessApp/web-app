@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next"
+
 import { getAuthenticatedUser } from "@/infra"
 import { customAPIError, customAPISuccess } from "@/utils"
 
@@ -18,12 +19,12 @@ export default async function handler(
 
     const data = await getAuthenticatedUser(req.cookies?.access_token ?? "")
 
-    if (data.ok === false) {
-      throw new Error(data.message)
+    if (!data.ok) {
+      return res.status(400).json(data)
     }
 
     return res.status(200).json(customAPISuccess(data.data))
   } catch (err) {
-    return res.status(400).json(customAPIError(res))
+    return res.status(500).json(customAPIError(res))
   }
 }
