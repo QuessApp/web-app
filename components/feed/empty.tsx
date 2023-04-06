@@ -32,7 +32,7 @@ export const FeedEmpty = () => {
     : "Enviar uma pergunta"
 
   return (
-    <div className="flex h-[300px] w-full max-w-[650px] shrink-0 items-center justify-center rounded-md border border-dashed border-slate-200 dark:border-slate-700 lg:h-[350px]">
+    <div className="flex h-[300px] w-full max-w-[650px] shrink-0 items-center justify-center rounded-md border border-dashed border-slate-300 bg-white dark:border-slate-600 dark:bg-slate-800 lg:h-[350px]">
       <div className="mx-auto flex flex-col items-center justify-center gap-0 px-4 text-center md:gap-2">
         <Ghost className="h-12 w-12 text-slate-400" />
         <h3 className="mt-4 text-lg font-semibold text-slate-900 dark:text-slate-50">

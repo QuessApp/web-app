@@ -7,6 +7,8 @@ export const mainAppAdapter = axios.create({
     "http://localhost:3200/api",
 })
 
+let refresh = false
+
 mainAppAdapter.interceptors.response.use(
   (response) => {
     return response
@@ -22,6 +24,7 @@ mainAppAdapter.interceptors.response.use(
     }
 
     if (errorMesage === "Token is expired") {
+      refresh = true
       originalRequest.retry = true
 
       const { data: result } = await mainAppAdapter.get(`/auth/refresh`)
@@ -33,7 +36,7 @@ mainAppAdapter.interceptors.response.use(
         return (window.location.href = "/signin")
       }
 
-      if (result?.data) {
+      if (result?.data && refresh) {
         Cookiejs.set("access_token", result.data.accessToken, {
           expires: new Date(result.data.expiresAt),
         })
@@ -46,6 +49,8 @@ mainAppAdapter.interceptors.response.use(
         Cookiejs.set("refresh_token", result.data.refreshToken, {
           expires: expiresInOneMonth,
         })
+
+        refresh = false
 
         return mainAppAdapter(originalRequest)
       }

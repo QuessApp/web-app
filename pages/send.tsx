@@ -1,5 +1,5 @@
 import { FeedTemplate } from "@/templates"
 
-export default function FeedPage() {
+export default function SendQuestionPage() {
   return <FeedTemplate />
 }

@@ -1,4 +1,3 @@
-import Link from "next/link"
 import { useRouter } from "next/router"
 
 import {
@@ -16,7 +15,7 @@ import { Button } from "./button"
 import { Logo } from "./logo"
 
 export const Sidebar = () => {
-  const { asPath, replace } = useRouter()
+  const { asPath, replace, push } = useRouter()
 
   const items = [
     {
@@ -30,9 +29,7 @@ export const Sidebar = () => {
         {
           name: "Perguntar",
           icon: <PlusCircle className="mr-2 h-4 w-4" />,
-          handler: () => {
-            console.log("Abrir modal")
-          },
+          href: "/send",
         },
         {
           name: "Notificações",
@@ -76,7 +73,7 @@ export const Sidebar = () => {
   ]
 
   return (
-    <aside className="max-w-xs pb-12">
+    <aside className="hidden max-w-xs pb-12 lg:block">
       <div className="px-8 pb-6">
         <p className="flex items-center gap-2 text-xl font-semibold tracking-tight">
           <Logo width={20} />
@@ -95,17 +92,14 @@ export const Sidebar = () => {
                   key={name}
                   variant={asPath === href ? "subtle" : "ghost"}
                   onClick={() => {
-                    if (typeof handler === "function") {
-                      handler()
-                    }
+                    typeof handler === "function" && handler()
+                    !!href && push(href)
                   }}
                   size="sm"
                   className="w-full justify-start"
                 >
-                  <Link href={href} className="flex items-center">
-                    {icon}
-                    <span className="text-base">{name}</span>
-                  </Link>
+                  {icon}
+                  <span className="text-base">{name}</span>
                 </Button>
               ))}
             </div>

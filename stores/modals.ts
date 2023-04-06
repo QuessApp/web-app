@@ -1,3 +1,4 @@
+import { Question } from "@/@types"
 import { create } from "zustand"
 
 interface ModalBlockOwnerQuestionData {
@@ -11,6 +12,7 @@ interface ModalHideQuestionData {
 }
 
 type ModalDeleteQuestionData = ModalHideQuestionData
+type ModalReplyQuestionData = Question
 
 interface Slice {
   isModalBlockOwnerQuestionOpen: boolean
@@ -19,12 +21,14 @@ interface Slice {
   modalBlockOwnerQuestionData: ModalBlockOwnerQuestionData | null
   modalHideQuestionData: ModalHideQuestionData | null
   modalDeleteQuestionData: ModalDeleteQuestionData | null
+  modalReplyQuestionData: ModalReplyQuestionData | null
   setModalHideQuestionData: (data: ModalHideQuestionData) => void
   setIsModalHideQuestionOpen: (isOpen: boolean) => void
   setIsModalBlockOwnerQuestionOpen: (isOpen: boolean) => void
   setIsModalDeleteQuestionOpen: (isOpen: boolean) => void
   setModalDeleteQuestionData: (data: ModalDeleteQuestionData) => void
   setModalBlockOwnerQuestionData: (data: ModalBlockOwnerQuestionData) => void
+  setModalReplyQuestionData: (data: ModalReplyQuestionData) => void
 }
 
 const initialStates: Omit<
@@ -35,6 +39,7 @@ const initialStates: Omit<
   | "setModalBlockOwnerQuestionData"
   | "setModalHideQuestionData"
   | "setModalDeleteQuestionData"
+  | "setModalReplyQuestionData"
 > = {
   isModalDeleteQuestionOpen: false,
   isModalHideQuestionOpen: false,
@@ -42,6 +47,7 @@ const initialStates: Omit<
   modalBlockOwnerQuestionData: null,
   modalHideQuestionData: null,
   modalDeleteQuestionData: null,
+  modalReplyQuestionData: null,
 }
 
 export const modalsStore = create<Slice>((set, get) => ({
@@ -63,5 +69,8 @@ export const modalsStore = create<Slice>((set, get) => ({
   },
   setModalDeleteQuestionData(data) {
     set({ modalDeleteQuestionData: data })
+  },
+  setModalReplyQuestionData(data) {
+    set({ modalReplyQuestionData: data })
   },
 }))

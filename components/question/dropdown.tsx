@@ -22,7 +22,7 @@ export const QuestionDropdown = ({ question }: QuestionActionsProps) => {
           <Tooltip>
             <TooltipTrigger>
               {/* TODO: remove this mt */}
-              <MoreHorizontal className="mt-1.5 h-4 w-4 rotate-180 text-slate-800 duration-100 hover:text-slate-300 lg:h-5 lg:w-5" />
+              <MoreHorizontal className="mt-1.5 h-4 w-4 rotate-180 text-slate-800 duration-100 hover:text-slate-300 dark:text-slate-400 lg:h-5 lg:w-5" />
             </TooltipTrigger>
             <TooltipContent side="bottom" align="end" className=" text-xs">
               Ações
@@ -39,11 +39,11 @@ export const QuestionDropdown = ({ question }: QuestionActionsProps) => {
         {actions.map(({ Icon, label, handler }) => (
           <DropdownMenuItem
             role="button"
-            className="flex cursor-pointer gap-3 text-sm font-normal duration-100 hover:bg-slate-50 lg:text-base"
+            className="flex cursor-pointer gap-3 text-sm font-normal duration-100 hover:bg-slate-50 dark:text-slate-100 dark:hover:bg-slate-800 lg:text-base"
             key={label}
             onClick={async () => handler(question)}
           >
-            <Icon className="h-4 w-4 text-slate-900 duration-100 " />
+            <Icon className="h-4 w-4 text-slate-900 duration-100 dark:text-slate-400" />
             <span>{label}</span>
           </DropdownMenuItem>
         ))}

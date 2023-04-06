@@ -1,20 +1,28 @@
-import {
-  BlockQuestionOwnerModal,
-  DeleteQuestionModal,
-  HideQuestionModal,
-} from "@/components"
+import dynamic from "next/dynamic"
 
-interface ModalsProviderProps {
-  children: React.ReactNode
-}
+const HideQuestionModal = dynamic(() =>
+  import("./hide-question").then((c) => c.HideQuestionModal)
+)
 
-export const ModalsProvider = ({ children }: ModalsProviderProps) => {
+const BlockQuestionOwnerModal = dynamic(() =>
+  import("./block-question-owner").then((c) => c.BlockQuestionOwnerModal)
+)
+
+const DeleteQuestionModal = dynamic(() =>
+  import("./delete-question").then((c) => c.DeleteQuestionModal)
+)
+
+const SendQuestionModal = dynamic(() =>
+  import("./send-question").then((c) => c.SendQuestionModal)
+)
+
+export const ModalsProvider = () => {
   return (
     <>
       <HideQuestionModal />
       <BlockQuestionOwnerModal />
       <DeleteQuestionModal />
-      {children}
+      <SendQuestionModal />
     </>
   )
 }

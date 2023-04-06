@@ -34,13 +34,13 @@ export const useMutationReplyQuestion = (
         exact: true,
       })
 
-      setQuestion({
-        content: replyContent,
-        isReplied: true,
-        reply: replyContent,
-        sentBy: user!,
-        repliedAt: new Date().toString(),
-      })
+      // setQuestion({
+      //   content: replyContent,
+      //   isReplied: true,
+      //   reply: replyContent,
+      //   sentBy: user!,
+      //   repliedAt: new Date().toString(),
+      // })
     },
     onSettled: () => {
       setIsReplyModalOpen(false)

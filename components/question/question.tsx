@@ -1,5 +1,5 @@
 import { Question } from "@/@types"
-import { QuestionActions, Separator, User } from "@/components"
+import { QuestionActions, User } from "@/components"
 import { useTimeAgo } from "@/hooks"
 import Link from "next/link"
 
@@ -10,7 +10,7 @@ export function Question({
   const date = useTimeAgo(createdAt)
 
   return (
-    <div className="question mx-auto max-w-[650px]">
+    <div className="question mx-auto max-w-[650px] rounded-md border border-slate-100 bg-white px-4 pb-1 pt-3 dark:border-slate-800 dark:bg-slate-800" style={{boxShadow: "0px 4px 15px -7px rgba(0,0,0,0.05) "}}>
       <div className="flex justify-between">
         <div className="user__wrapper">
           <User isAnonymous={isAnonymous} {...sentBy} />
@@ -24,14 +24,12 @@ export function Question({
       </div>
 
       <Link href={`/question/${id}`}>
-        <div className="question__content my-2">
-          <p className="break-all text-left text-sm leading-[1.5] text-slate-900 lg:text-base ">{content}</p>
+        <div className="question__content mb-2 mt-3">
+          <p className="break-all text-left text-sm leading-[1.5] text-slate-900 dark:text-slate-100 lg:text-sm">{content}</p>
         </div>
       </Link>
 
       <QuestionActions question={props}/>
-
-      <Separator className="mt-2" />
     </div>
   )
 }

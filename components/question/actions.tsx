@@ -19,11 +19,11 @@ export const QuestionActions = ({ question }: QuestionActionsProps) => {
     useModalsStore()
 
   return (
-    <div className="flex items-center justify-between gap-4">
+    <div className="mt-[10px] flex items-center justify-between gap-4">
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger>
-            <Reply className="h-4 w-4 rotate-180 text-slate-800 duration-100 hover:text-slate-300 lg:h-5 lg:w-5" />
+            <Reply className="h-4 w-4 rotate-180 text-slate-800 duration-100 hover:text-slate-300 dark:text-slate-400 lg:h-5 lg:w-5" />
           </TooltipTrigger>
           <TooltipContent side="bottom" align="start" className="text-xs">
             Responder pergunta
@@ -33,7 +33,7 @@ export const QuestionActions = ({ question }: QuestionActionsProps) => {
         <Tooltip>
           <TooltipTrigger>
             <EyeOff
-              className="lg:h-4.5 lg:w-4.5 h-4 w-4 rotate-180 text-slate-800 duration-100 hover:text-slate-300"
+              className="lg:h-4.5 lg:w-4.5 h-4 w-4 rotate-180 text-slate-800 duration-100 hover:text-slate-300 dark:text-slate-400"
               onClick={() => {
                 setModalHideQuestionData({ questionId: question.id })
                 setIsModalHideQuestionOpen(true)
@@ -48,7 +48,7 @@ export const QuestionActions = ({ question }: QuestionActionsProps) => {
         <Tooltip>
           <TooltipTrigger>
             <Link2
-              className="lg:h-4.5 lg:w-4.5 h-4 w-4 rotate-180 text-slate-800 duration-100 hover:text-slate-300"
+              className="lg:h-4.5 lg:w-4.5 h-4 w-4 rotate-180 text-slate-800 duration-100 hover:text-slate-300 dark:text-slate-400"
               onClick={() => {
                 copyToClipboard(
                   `${window.location.host}/question/${question.id}`

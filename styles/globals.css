@@ -9,6 +9,10 @@
     "Noto Color Emoji";
 }
 
+body {
+  background-color: #f5f7fa;
+}
+
 ptr,
 .ptr--dragging,
 .ptr__children {
@@ -21,7 +25,7 @@ ptr,
   flex-direction: column;
   gap: 12px;
   align-items: center;
-  width: fit-content !important;
+
   margin: 0 auto;
 }
 

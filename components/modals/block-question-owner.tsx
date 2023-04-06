@@ -28,7 +28,7 @@ export const BlockQuestionOwnerModal = () => {
     <AlertDialog.Root open={isModalBlockOwnerQuestionOpen}>
       <AlertDialog.Portal>
         <AlertDialog.Overlay className="data-[state=open]:animate-overlayShow fixed inset-0 bg-black/50 backdrop-blur-sm" />
-        <AlertDialog.Content className="data-[state=open]:animate-contentShow fixed left-[50%] top-[50%] flex max-h-[85vh] w-[90vw] max-w-[650px] translate-x-[-50%] translate-y-[-50%] flex-col gap-4 rounded-[6px] bg-white p-[25px] text-left shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none sm:text-left">
+        <AlertDialog.Content className="data-[state=open]:animate-contentShow fixed left-[50%] top-[50%] flex max-h-[85vh] w-[90vw] translate-x-[-50%] translate-y-[-50%] flex-col gap-4 rounded-[6px] bg-white p-[25px] text-left shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none dark:bg-slate-900 sm:max-w-[550px] sm:text-left">
           <AlertDialog.Title className="text-lg font-semibold text-slate-900 dark:text-slate-50">
             Bloquear remetente?
           </AlertDialog.Title>

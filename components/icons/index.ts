@@ -9,7 +9,7 @@ import {
 export * from "./BiBlock"
 export * from "./BsArrowDownShort"
 export * from "./FaHome"
-export * from "./Github"
+export * from "./GitHub"
 export * from "./HiBell"
 export * from "./HiOutlineBell"
 export * from "./HiOutlineDotsHorizontal"
