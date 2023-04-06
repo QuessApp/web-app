@@ -29,7 +29,7 @@ export const UserInfo = ({
       </div>
 
       {!isAnonymous && (
-        <span className="-mt-0.5 block w-fit text-[13px] font-medium text-slate-500 dark:text-slate-400 lg:text-base">
+        <span className="-mt-0.5 block w-fit text-[13px] font-medium text-slate-500 dark:text-slate-400">
           @{nick}
         </span>
       )}
