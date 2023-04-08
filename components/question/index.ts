@@ -1,4 +1,7 @@
 export * from "./actions"
+export * from "./content"
 export * from "./dropdown"
+export * from "./footer"
+export * from "./header"
 export * from "./question"
 export * from "./user"

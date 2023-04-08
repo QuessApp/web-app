@@ -3,7 +3,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-  QuestionActionsProps,
+  ProviderQuestionActionsProps,
   Tooltip,
   TooltipContent,
   TooltipProvider,
@@ -12,8 +12,15 @@ import {
 import { useQuestionDropdownActions } from "@/hooks"
 import { MoreHorizontal } from "lucide-react"
 
-export const QuestionDropdown = ({ question }: QuestionActionsProps) => {
-  const actions = useQuestionDropdownActions({ question })
+export const QuestionDropdown = ({
+  question,
+  isQuestionOwner,
+}: ProviderQuestionActionsProps) => {
+  const actions = useQuestionDropdownActions({ question, isQuestionOwner })
+
+  if (actions.length === 0) {
+    return <div className="mt-1.5 h-4 w-4 lg:h-5 lg:w-5"></div>
+  }
 
   return (
     <DropdownMenu>
@@ -39,12 +46,12 @@ export const QuestionDropdown = ({ question }: QuestionActionsProps) => {
         {actions.map(({ Icon, label, handler }) => (
           <DropdownMenuItem
             role="button"
-            className="flex cursor-pointer gap-3 text-sm font-normal duration-100 hover:bg-slate-50 dark:text-slate-100 dark:hover:bg-slate-800 lg:text-base"
+            className="flex cursor-pointer gap-3 font-normal duration-100 hover:bg-slate-50 dark:text-slate-100 dark:hover:bg-slate-800 lg:text-sm"
             key={label}
-            onClick={async () => handler(question)}
+            onClick={async () => handler()}
           >
-            <Icon className="h-4 w-4 text-slate-900 duration-100 dark:text-slate-400" />
-            <span>{label}</span>
+            <Icon className="h-3.5 w-3.5 text-slate-900 duration-100 dark:text-slate-400" />
+            <span className="text-sm">{label}</span>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
