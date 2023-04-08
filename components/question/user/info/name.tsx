@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-import type { UserProps } from "@/components"
+import { VerifiedBadge, type UserProps } from "@/components"
 import { cn } from "@/lib"
 
 const Name = ({ name }: Pick<UserProps, "name">) => {
@@ -21,12 +21,17 @@ export const UserName = ({
   name,
   nick,
   isAnonymous,
-}: Pick<UserProps, "name" | "isAnonymous" | "nick">) => {
+  isVerified,
+}: Pick<UserProps, "name" | "isAnonymous" | "nick" | "isVerified">) => {
   return isAnonymous ? (
     <AnonymousUserName />
   ) : (
-    <Link href={`/user/${nick}`}>
-      <Name name={name} />
-    </Link>
+    <div className="flex items-center">
+      <Link href={`/user/${nick}`}>
+        <Name name={name} />
+      </Link>
+
+      <VerifiedBadge isVerified={isVerified} />
+    </div>
   )
 }

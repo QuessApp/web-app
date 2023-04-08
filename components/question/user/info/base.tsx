@@ -1,14 +1,11 @@
 import type { UserProps } from "@/components"
 
-import { UserPresentation, UserProvider, VerifiedBadge } from "."
+import { UserPresentation, UserProvider } from "."
 
 export const BaseUserInfo = (data: UserProps) => {
-  const { isVerified, ...rest } = data
-
   return (
     <UserProvider>
-      <UserPresentation {...rest} />
-      <VerifiedBadge isVerified={isVerified} />
+      <UserPresentation {...data} />
     </UserProvider>
   )
 }

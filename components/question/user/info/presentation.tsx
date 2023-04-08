@@ -4,10 +4,16 @@ export const UserPresentation = ({
   nick,
   isAnonymous,
   name,
-}: Pick<UserProps, "nick" | "isAnonymous" | "name">) => {
+  isVerified,
+}: Pick<UserProps, "nick" | "isAnonymous" | "name" | "isVerified">) => {
   return (
     <div>
-      <UserName nick={nick} name={name} isAnonymous={isAnonymous} />
+      <UserName
+        isVerified={isVerified}
+        nick={nick}
+        name={name}
+        isAnonymous={isAnonymous}
+      />
       <UserNick nick={nick} isAnonymous={isAnonymous} />
     </div>
   )
