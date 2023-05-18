@@ -2,7 +2,7 @@ import { customAPIError, customAPISuccess } from "./custom-api-status"
 
 describe("Custom API Status", () => {
   describe("Custom API Errors", () => {
-    it("should handle errors correctly", () => {
+    it("handle errors correctly", () => {
       expect(customAPIError(new Error("foobar"))).toMatchObject({
         ok: false,
         message: "foobar",
@@ -46,7 +46,7 @@ describe("Custom API Status", () => {
   })
 
   describe("Custom API Success", () => {
-    it("should return data correctly", () => {
+    it("return data correctly", () => {
       expect(customAPISuccess("foobar")).toMatchObject({
         ok: true,
         message: null,
@@ -70,7 +70,7 @@ describe("Custom API Status", () => {
       })
     })
 
-    it("should return data as undefined if no data is passed", () => {
+    it("return data as undefined if no data is passed", () => {
       expect(customAPISuccess(undefined)).toMatchObject({
         ok: true,
         message: null,
